@@ -33,9 +33,22 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
+app.use(function(req, res, next){
+  console.log('new request from ' + req.path);
+  next();
+});
+
+/*subapp = express();
+subapp.use(function(req, res, next){
+  res.send('hello from user');
+  });
+
+app.use('/sub', subapp);*/
+
 require('./lib/boot')(app, {verbose: true});
 
 app.use(function(err, req, res, next){
+  console.log('did not find resource');
 	if(~err.message.indexOf('not found')) return next();
 
 	console.error(err.stack);
