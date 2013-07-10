@@ -9,8 +9,4 @@ exports.before = function(req, res, next){
 exports.list = function(req, res, next){
 	console.log('list users');
 	res.render('list', { users: db.users});
-};
-
-exports.index = function(req, res, next){
-	res.send('user index');
 }

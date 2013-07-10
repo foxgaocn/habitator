@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>habitor</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <h1>habitor</h1>
+    <p>Welcome to habitor</p>
+    <% if(everyauth.loggedIn) { %>
+    	<p>you are logged in</p>
+    <% } else { %>
+    	<p><a href="auth/facebook" class="facebook">Login with Facebook</a></p>
+    <% } %>
   </body>
 </html>
