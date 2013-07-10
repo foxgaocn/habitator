@@ -20,13 +20,14 @@ fs.readdirSync(models_path).forEach(function (file) {
 });
 var UserModel = mongoose.model('UserModel');
 
-everyauth.everymodule.findUserById(function(userId, callback){
-  UserModel.findOne({facebook_id: userId}, function(err, user){
-    callback(user, err);
-  });
+everyauth.everymodule.findUserById(function(id, callback){
+    console.log("trying to find with userid: " + id);
+    UserModel.findById(id, function(err, user){
+        console.log(user);
+        //user.id = user.facebook_id;
+        callback(null, user);
+    });
 });
-
-everyauth.helpExpress(app)
 
 everyauth.facebook
   .appId('144772812392904')
@@ -101,6 +102,8 @@ app.use(function(req, res, next){
 });
 
 app.use('/',function(req, res, next){
+    console.log("req.user: " + req.user);
+    console.log("everyauth.user: "+everyauth.user); 
     res.render('index');
 });
 
