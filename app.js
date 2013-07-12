@@ -10,10 +10,11 @@ var express = require('express')
   , path = require('path')
   , everyauth = require('everyauth')
   , fs = require('fs')
+  , config = require('./configure')
   , mongoose = require('mongoose');
 
 
-mongoose.connect('mongodb://127.0.0.1/habitor');
+mongoose.connect(config.database);
 var models_path = "./models";
 fs.readdirSync(models_path).forEach(function (file) {
     require(models_path+'/'+file)
@@ -21,21 +22,12 @@ fs.readdirSync(models_path).forEach(function (file) {
 var UserModel = mongoose.model('UserModel');
 
 everyauth.everymodule.findUserById(function(id, callback){
-    console.log("trying to find with userid: " + id);
     UserModel.findById(id, function(err, user){
-        console.log(user);
-        //user.id = user.facebook_id;
         callback(null, user);
     });
 });
 
-everyauth.facebook
-  .appId('144772812392904')
-  .appSecret('90c2e3d9829758a8c6bbc6b0990146fe')
-  .handleAuthCallbackError( function (req, res) {
-      res.send('sorry, in order to use the app, you need to grant facebook access')
-  })
-  .findOrCreateUser( function (session, accessToken, accessTokExtra, fbUserMetadata) {
+var fbFindOrCreateUser = function (session, accessToken, accessTokExtra, fbUserMetadata) {
         var promise = this.Promise();
         UserModel.findOne({facebook_id: fbUserMetadata.id},function(err, user) {
         if (err) {
@@ -67,8 +59,16 @@ everyauth.facebook
       }
     });
     return promise;
-})
-.redirectPath('/');
+}
+
+everyauth.facebook
+    .appId(config.fb.appId)
+    .appSecret(config.fb.appSecret)
+    .handleAuthCallbackError( function (req, res) {
+        res.send('sorry, in order to use the app, you need to grant facebook access')
+    })
+    .findOrCreateUser(fbFindOrCreateUser)
+    .redirectPath('/');
 
 
 var app = express();
@@ -81,7 +81,7 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 app.use(express.favicon());
 app.use(express.logger('dev'));
-app.use(express.cookieParser('342kfsdakj'));
+app.use(express.cookieParser(config.cookieSecret));
 app.use(express.session())
 app.use(express.bodyParser());
 app.use(express.methodOverride());
@@ -102,10 +102,13 @@ app.use(function(req, res, next){
 });
 
 app.use('/',function(req, res, next){
-    console.log("req.user: " + req.user);
-    console.log("everyauth.user: "+everyauth.user); 
-    res.render('index');
+ if(everyauth.user != undefined){
+        res.redirect("/user:everyauth.id")
+    }else{
+        res.render('index');
+    }
 });
+
 
 
 require('./lib/boot')(app, {verbose: true});
