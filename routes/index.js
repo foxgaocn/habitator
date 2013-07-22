@@ -1,8 +1,7 @@
-
-/*
- * GET home page.
- */
-
 exports.index = function(req, res){
-  res.render('index', { title: 'Express' });
+	if(req.user != undefined){
+        res.redirect("/user/:" + req.user._id)
+    }else{
+  		res.render('index')
+	};
 };

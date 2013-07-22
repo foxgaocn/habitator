@@ -1,7 +1,7 @@
 
 /**
- * Module dependencies.
- */
+* Module dependencies.
+*/
 
 var express = require('express')
   , routes = require('./routes')
@@ -11,60 +11,26 @@ var express = require('express')
   , everyauth = require('everyauth')
   , fs = require('fs')
   , config = require('./configure')
+  , db = require('./lib/db.js')
   , mongoose = require('mongoose');
 
 
-mongoose.connect(config.database);
-var models_path = "./models";
-fs.readdirSync(models_path).forEach(function (file) {
-    require(models_path+'/'+file)
-});
-var UserModel = mongoose.model('UserModel');
-
-everyauth.everymodule.findUserById(function(id, callback){
-    UserModel.findById(id, function(err, user){
-        callback(null, user);
+everyauth.everymodule.findUserById(function (id, callback) {
+    db.findUserById(id, callback, function(err){
+        console.log('error find user ' + err);
     });
 });
 
 var fbFindOrCreateUser = function (session, accessToken, accessTokExtra, fbUserMetadata) {
-        var promise = this.Promise();
-        UserModel.findOne({facebook_id: fbUserMetadata.id},function(err, user) {
-        if (err) {
-            console.log("error in finding user");
-            return promise.fulfill([err]);
-        }
-        if(user) {
-           promise.fulfill(user);
-        }else{
-            // create new user
-            var User = new UserModel({
-                name: fbUserMetadata.name,
-                firstname: fbUserMetadata.first_name,
-                lastname: fbUserMetadata.last_name,
-                email: fbUserMetadata.email,
-                username: fbUserMetadata.username,
-                gender: fbUserMetadata.gender,
-                facebook_id: fbUserMetadata.id,
-                facebook: fbUserMetadata
-                });
-
-            User.save(function(err,user) {
-                if(err){
-                    console.log("error in saving user");
-                    return promise.fulfill([err])
-                }
-            promise.fulfill(user);
-          });
-      }
-    });
+    var promise = this.Promise();
+    db.findOrCreateFbUser(fbUserMetadata, promise);
     return promise;
 }
 
 everyauth.facebook
     .appId(config.fb.appId)
     .appSecret(config.fb.appSecret)
-    .handleAuthCallbackError( function (req, res) {
+    .handleAuthCallbackError(function (req, res) {
         res.send('sorry, in order to use the app, you need to grant facebook access')
     })
     .findOrCreateUser(fbFindOrCreateUser)
@@ -93,40 +59,36 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // development only
 if ('development' == app.get('env')) {
-  app.use(express.errorHandler());
+    app.use(express.errorHandler());
 }
 
-app.use(function(req, res, next){
+app.use(function (req, res, next) {
     console.log('new request from ' + req.path);
     next();
 });
 
-app.use('/',function(req, res, next){
- if(everyauth.user != undefined){
-        res.redirect("/user:everyauth.id")
-    }else{
-        res.render('index');
-    }
+app.get('/', function (req, res, next) {
+    require("./routes/index").index(req, res);
 });
 
 
 
-require('./lib/boot')(app, {verbose: true});
+require('./lib/boot')(app, { verbose: true });
 
-app.use(function(err, req, res, next){
-  console.log('did not find resource');
-	if(~err.message.indexOf('not found')) return next();
+app.use(function (err, req, res, next) {
+    console.log('did not find resource');
+    if (~err.message.indexOf('not found')) return next();
 
-	console.error(err.stack);
+    console.error(err.stack);
 
-	res.status(500).render('5xx');
+    res.status(500).render('5xx');
 });
 
-app.use(function(req, res, next){
-  res.status(404).render('404', { url: req.originalUrl });
+app.use(function (req, res, next) {
+    res.status(404).render('404', { url: req.originalUrl });
 });
 
 
-http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
+http.createServer(app).listen(app.get('port'), function () {
+    console.log('Express server listening on port ' + app.get('port'));
 });
