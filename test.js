@@ -1,5 +1,22 @@
-var obj = {};
-obj.test1 = function(){console.log('test1')};
-obj['test2'] = function(){console.log('test2')};
-obj.test1();
-obj['test2']();
+var obj = {
+	id : 1,
+	func : function(){
+		console.log(this.id);
+	}
+};
+
+id3 = 3;
+function f1(){
+	var id2 = 2;
+	id3 = 4;
+	return function(){
+		console.log(this);
+		console.log(id2);
+		console.log(id3);
+	}
+}
+console.log(id3);
+
+
+//obj.func();
+f1()();
