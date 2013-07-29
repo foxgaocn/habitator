@@ -16,9 +16,12 @@ var express = require('express')
 
 
 everyauth.everymodule.findUserById(function (id, callback) {
-    db.findUserById(id, callback, function(err){
+    db.findUserById(id)
+    .then(function(user){
+      callback(null, user);
+    } ,function(err){
         console.log('error find user ' + err);
-    });
+    }).done();
 });
 
 var fbFindOrCreateUser = function (session, accessToken, accessTokExtra, fbUserMetadata) {
@@ -45,6 +48,7 @@ app.engine('html', require('ejs').renderFile);
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
+app.engine('ejs', require('ejs-locals'));
 app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.cookieParser(config.cookieSecret));
