@@ -75,11 +75,6 @@ app.get('/', function (req, res, next) {
     require("./routes/index").index(req, res);
 });
 
-app.get('/channel.html', function(req, res, next){
-    res.sendfile('./public/channel.html')
-});
-
-
 
 require('./lib/boot')(app, { verbose: true });
 

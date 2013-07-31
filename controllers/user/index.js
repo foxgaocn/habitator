@@ -1,4 +1,5 @@
-var db =require ('./../../lib/db.js');
+var db =require ('./../../lib/db.js')
+ ,helper = require('./../../lib/helpers.js');
 
 exports.before = function(req, res, next){
 	console.log('user before action');
@@ -19,11 +20,12 @@ exports.show = function(req, res, next){
 			res.render('new');
 		}else
 		{
-			console.log('active habit found for user, getting habit information');
 			db.findHabitByUserId(userHabit.userId).then(
 				function(habit){
-					console.log('before rendor habit ' + habit);
-					res.render('habit', {model: {userHabit: userHabit, habit:habit}})
+					var status = helper.getHaibtStatus(userHabit);
+					var viewModel = {model: {habit:habit, lasted:status.lasted} };
+					var viewName = getViewName(status.status);
+					res.render(viewName, {model: {userHabit: userHabit, habit:habit}})
 				});
 			
 		}
@@ -31,3 +33,19 @@ exports.show = function(req, res, next){
 	.done();
 }
 
+getViewName = function(status){
+	switch(status){
+		case helper.STATUS.STALE:
+		  return 'stale';
+		case helper.STATUS.DONE:
+		  return 'done';
+		case helper.STATUS.TODAY_DONE:
+		  return 'ontrack';
+		case helper.STATUS.TODAY_NOT_DONE:
+		  return 'progress';
+		case helper.STATUS.BROKEN:
+		  return 'broken';
+		default:
+		  return 'error';
+	}
+}
