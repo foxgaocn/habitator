@@ -11,7 +11,7 @@ suite("habitStatus", function(){
 			lastUpdateDate: null};
 		var status = target.getHaibtStatus(userHabit);
 		assert.equal(status.status, target.STATUS.STALE);
-		assert.equal(status.lasted, 0);
+		assert.equal(status.lasted, 2);
 	});
 
 	test('should return "today_not_done" in day 1 without lastUpdateDate', function(){
@@ -107,6 +107,15 @@ suite("habitStatus", function(){
 		var status = target.getHaibtStatus(userHabit);
 		assert.equal(status.status, target.STATUS.BROKEN);
 		assert.equal(status.lasted, 19);
+	});
+
+	test('should return "not ready" in day 1', function(){
+		var userHabit = {
+			startDate: Date.now() + aDay, 
+			lastUpdateDate: null};
+		var status = target.getHaibtStatus(userHabit);
+		assert.equal(status.status, target.STATUS.NOT_READY);
+		assert.equal(status.lasted, -1);
 	});
 
 });

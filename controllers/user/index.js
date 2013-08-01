@@ -45,6 +45,8 @@ getViewName = function(status){
 		  return 'progress';
 		case helper.STATUS.BROKEN:
 		  return 'broken';
+		case helper.STATUS.NOT_READY:
+		  return 'tobestarted'
 		default:
 		  return 'error';
 	}
