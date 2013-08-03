@@ -24,7 +24,6 @@ var UserHabitSchema = Schema({
 	habitId: String,
 	startDate: Date,
 	lastUpdateDate: Date,
-	lastedDays: Number,
     isActive : Boolean
 });
 

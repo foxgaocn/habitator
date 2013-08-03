@@ -42,19 +42,45 @@ $(function(){
      };
 
    var createHabit = function(){
-      url = $('#create_habit').attr('action');
+      url = '/habit/create';
 
-      var posting = $.post( url, { goal: $('#goal').val(), action: $('#action').val() } );
+      var posting = $.post(url, { 
+                                  goal: $('#goal').val(), 
+                                  action: $('#action').val(),
+                                  startDate: $('#startDate').val() } );
 
       posting.done(function( data ) {
-        alert(data);
+        location.reload();
       });
+   };
+
+   var progressHabit = function() {
+     url = '/habit/update';
+
+     var posting = $.post(url, {lastUpdateDate: new Date().toDateString()});
+
+     posting.done(function( data ) {
+        location.reload();
+      });
+
+     posting.fail(function(xhr){
+      alert(xhr.responseText);
+     })
    };
 
    //create habit form behavior
    $("#submitButton").click(function(event){
+    alert('#startDate is ' + $('#startDate').val());
+    alert('date is ' + new Date($('#startDate').val()));
       event.preventDefault();
       //alert('start');
       postToFB(createHabit);
-   })
+   });
+
+   //today done button clicked
+   $("#today_done").click(function(event){
+      event.preventDefault();
+      //alert('start');
+      postToFB(progressHabit);
+   });
 });
