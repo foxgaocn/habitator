@@ -17,6 +17,44 @@
   </head>
   <body>
     <script type="text/javascript" src='/script/habitor.js'></script>
+    <script type='text/javascript'>
+        var CountDown = function(hr, min, sec){
+          this.hr = hr;
+          this.min = min;
+          this.sec = sec;
+
+          this.reminding = 0;
+
+          this.start = function(){
+              var self = this;
+              var tmmr = new Date(Date.now() + 24*1000*3600);
+              var end = new Date(tmmr.getFullYear(), tmmr.getMonth(), tmmr.getDate());
+              this.reminding = Math.floor((end.getTime() - Date.now())/1000);
+              this.timer = window.setInterval(function() {self.updateTimer(self)}, 1000);
+          };
+
+          this.updateTimer = function(self){
+
+              self.reminding -=1;
+              if(self.reminding < 0){
+                window.clearInterval(self.timer);
+                return;
+              }
+              var hour = Math.floor(self.reminding / 3600);
+              var min = Math.floor( (self.reminding - hour *3600)/60 );
+              var sec = this.reminding - hour *3600 - min*60
+              self.hr.html(hour + ' Hour');
+              self.min.html(min + ' min');
+              self.sec.html(sec + ' sec');
+          }
+        }
+
+        $(function(){
+            var countDown = new CountDown($('#hour'),$('#min'),$('#sec'));
+            countDown.start();
+        });
+
+    </script>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="navbar-inner">
             <div class="container">
@@ -44,13 +82,37 @@
         </div>
       </div>
       <!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+      <div id='hour'></div>
+      <div id='min'></div>
+      <div id='sec'></div>
       <div>
         <table id='progress'>
             <tr >
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
+              <td><span class='days'>Day 1</span><img src='/image/done1.gif'/></td>
+              <td><span class='days'>Day 2</span><img src='/image/done1.gif'/></td>
+              <td><span class='days'>Day 3</span><img src='/image/done1.gif'/></td>
+              <td><span class='days'>Day 4</span><img src='/image/done1.gif'/></td>
+              <td><span class='days'>Day 5</span><img src='/image/done1.gif'/></td>
+              <td><span class='days'>Day 6</span><img src='/image/finish.jpg'/></td>
+              <td></td>
+            </tr>
+            <tr >
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr >
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
             </tr>
         </table>
         <table>

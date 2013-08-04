@@ -1,13 +1,21 @@
 #progress{
-	border: 1px solid black;
+	border: 0;
 }
 
 #progress td{
-	border: 1px solid black;
-	width: 150px;
-    height: 100px;
+	padding-top: 15px;
+	padding-left: 10px;
+	border : 0px solid;
+	width: 95px;
+    height: 110px;
     background-image: url('/image/calendar.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: 50% 50%;
+}
+
+.days{
+	margin-left: 22px;
+	color: white;
+	font-family:  Ubuntu, Helvetica, Arial, sans-serif;
 }
