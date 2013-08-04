@@ -1,0 +1,13 @@
+#progress{
+	border: 1px solid black;
+}
+
+#progress td{
+	border: 1px solid black;
+	width: 150px;
+    height: 100px;
+    background-image: url('/image/calendar.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
