@@ -1,7 +1,7 @@
 /* large desktop */
 @media(min-width: 980px){
 	body {
-		padding-top: 60px;
+		padding-top: 40px;
 	}
 	.linediv-l {
 		border-right: 1px white solid;
@@ -28,6 +28,10 @@
 /* main body and headings */
 body{
 	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+}
+
+.headercontainer{
+	width: 100%;
 	background-color: #372f2d;
 	color: white;
 }
@@ -90,4 +94,8 @@ p{
 }
 .footer a{
 	color: #ccccff
+}
+
+.red{
+	color: #ff0000
 }
