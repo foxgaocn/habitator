@@ -28,10 +28,21 @@
 /* main body and headings */
 body{
 	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+	background-color: #372f2d;
+	color: white;
 }
 .heading, .subheading{
 	font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
 	text-align: center;
+	vertical-align: middle;
+}
+
+.pic{
+	height: 500px;
+	background-image: url('/image/habit.jpg');
+	background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 30% 50%;
 }
 p.lead{
 	padding-top: 1.5%;
