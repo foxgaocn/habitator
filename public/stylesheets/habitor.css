@@ -11,6 +11,22 @@
 	}
 }
 
+@media (max-width: 979px)
+{
+    .headercontainer 
+	{
+	    margin-top: -20px;
+	}
+}
+
+@media (max-width: 767px)
+{
+    .headercontainer 
+	{
+	    margin-left: -20px;
+	    margin-right: -20px;
+	}
+}
 /* landscape phone */
 @media(max-width: 480px){
 	.copy {
@@ -22,6 +38,12 @@
 	.linediv-r {
 		border-top: 1px white solid;
 	}
+	.headercontainer 
+	{
+	    margin-top: -20px;
+	    margin-left: -20px;
+        margin-right: -20px;
+	}
 }
 
 /* all form factors */
@@ -31,7 +53,6 @@ body{
 }
 
 .headercontainer{
-	width: 100%;
 	background-color: #372f2d;
 	color: white;
 }
@@ -42,11 +63,11 @@ body{
 }
 
 .pic{
-	height: 500px;
+	height: 400px;
 	background-image: url('/image/habit.jpg');
 	background-size: contain;
     background-repeat: no-repeat;
-    background-position: 30% 50%;
+    background-position: 50% 50%;
 }
 p.lead{
 	padding-top: 1.5%;
@@ -98,4 +119,12 @@ p{
 
 .red{
 	color: #ff0000
+}
+
+.error{
+	color: red;
+	font-size: 12px;
+	line-height: 15px;
+	margin-left: 5px;
+	margin-top: -10px;
 }

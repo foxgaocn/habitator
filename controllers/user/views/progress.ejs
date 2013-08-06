@@ -1,6 +1,20 @@
 <% layout('../../../views/boilerplate') -%>
-<h1> progress </h1>
-hello <%= model.habit.goal %>
-<div>
-<button id='today_done'>Done</button>
-</div>
+<% stylesheet('/stylesheets/progress.css') -%>
+<% script('/script/progress.js') -%>
+     <div class="container">
+      <div class="row-fluid heading">
+        <div class="span12">
+          <h1> Habitor </h1>
+        </div>
+      </div>
+      <!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+      <div>
+        <table id='progress'>
+           
+        </table>
+      </div>  
+      <!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+      <button id='today_done'>Done</button>
+    </div>
+
+    <div class='hidden' id='lasted' value='<%=status.lasted%>'></div>

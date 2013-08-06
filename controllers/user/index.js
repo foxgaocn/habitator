@@ -23,9 +23,9 @@ exports.show = function(req, res, next){
 			db.findHabitByUserId(userHabit.userId).then(
 				function(habit){
 					var status = helper.getHaibtStatus(userHabit);
-					var viewModel = {model: {habit:habit, lasted:status.lasted} };
+					var viewModel = {habit:habit, status:status, startDate:userHabit.startDate};
 					var viewName = getViewName(status.status);
-					res.render(viewName, {model: {userHabit: userHabit, habit:habit}})
+					res.render(viewName, viewModel);
 				});
 			
 		}

@@ -45,6 +45,7 @@ $(function(){
       url = '/habit/create';
 
       var posting = $.post(url, { 
+                                  trigger: $('#trigger').val(), 
                                   goal: $('#goal').val(), 
                                   action: $('#action').val(),
                                   startDate: $('#startDate').val() } );
@@ -70,10 +71,8 @@ $(function(){
 
    //create habit form behavior
    $("#submitButton").click(function(event){
-    alert('#startDate is ' + $('#startDate').val());
-    alert('date is ' + new Date($('#startDate').val()));
       event.preventDefault();
-      //alert('start');
+      if(!validateHabitData()) return;
       postToFB(createHabit);
    });
 
@@ -83,4 +82,39 @@ $(function(){
       //alert('start');
       postToFB(progressHabit);
    });
+
+   validateHabitData = function(){
+      var passed = true;
+      $('.error').empty();
+      if(isBlank($('#trigger').val())){
+          $('#trigger').after('<p class="error">* trigger is required</p>');
+          passed = false;
+      }
+      if(isBlank($('#action').val())){
+          $('#action').after('<p class="error">* action is required</p>');
+          passed = false;
+      }
+      if(isBlank($('#goal').val())){
+          $('#goal').after('<p class="error">* goal is required</p>');
+          passed = false;
+      }
+      if(!isAfterToday($('#startDate').val())){
+          $('#startDate').after('<p class="error">* a date after or equal to today\'s date is expected</p>');
+          passed = false;
+      }
+
+      return passed;
+   }
+
+   function isAfterToday(str){
+      var value = Date.parse(str);
+      if(isNaN(value)) return false;
+
+      var now = new Date();
+      var today = new Date(now.getFullYear(), now.getMonth(), now.getDate()).valueOf();
+      return value >= today;
+   }
+
+   function isBlank(str) {
+    return (!str || /^\s*$/.test(str));}
 });

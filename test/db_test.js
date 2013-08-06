@@ -111,9 +111,9 @@ suite("db", function(){
 	
 
 	test('should get habit by user id if exists', function(done){
-		target.createHabit("to be fit", "i will run 3 kms everyday")
+		target.createHabit("i get up", "i will run 3 kms everyday", "to be fit")
 		.then(function(habit){
-			return target.createUserHabit(1, habit._id, null, null, 0, true)
+			return target.createUserHabit(1, habit._id, Date.now(), Date.now(), true)
 		})
 		.then(function(userHabit){
 			return target.findHabitByUserId(1);

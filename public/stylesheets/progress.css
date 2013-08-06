@@ -12,10 +12,14 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: 50% 50%;
+    position: relative;
 }
 
 .days{
 	margin-left: 22px;
 	color: white;
 	font-family:  Ubuntu, Helvetica, Arial, sans-serif;
+	position: absolute;
+	left: 15px;
+	top: 25px;
 }

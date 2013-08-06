@@ -1,7 +1,7 @@
 var db =require ('./../../lib/db.js');
 
 exports.create = function(req, res, next){
-	db.createHabit(req.body.goal, req.body.action).
+	db.createHabit(req.body.trigger, req.body.action, req.body.goal).
 	then(function(habit){
 		db.createUserHabit(req.user._id, habit._id,  req.body.startDate, null, true)
 		.then(function(user_habit){
