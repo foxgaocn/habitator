@@ -20,6 +20,7 @@ $(function(){
 		 for(var i = 0; i < row; i++){
 		 	content += '<tr>'
 		 	for(var j=0; j<column; j++){
+		 		if(i*column + j > 20) break;
 		 		content += '<td class="calendarcell"><span class="days">' + getDateString($('#values').attr('startDate'),(i*column+j)) + '</span></td>'
 		 	}
 		 	content += '</tr>';

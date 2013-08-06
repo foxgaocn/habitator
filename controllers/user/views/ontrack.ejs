@@ -4,17 +4,12 @@
      <div class="container">
       <div class="row-fluid heading">
         <div class="span12">
-          <h1> Habitor </h1>
+          <h1> On track </h1>
         </div>
       </div>
-      <!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
-      <div>
-        <table id='progress'>
-           
-        </table>
-      </div>  
-      <!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+      <%-partial('calendar', {lasted:status.lasted, startDate:startDate}) %>
+      
       <button id='today_done'>Done</button>
     </div>
 
-    <div class='hidden' id='values' lasted='<%=status.lasted%>' startDate='<%=startDate%>'></div>
+   
