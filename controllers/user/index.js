@@ -2,7 +2,6 @@ var db =require ('./../../lib/db.js')
  ,helper = require('./../../lib/helpers.js');
 
 exports.before = function(req, res, next){
-	console.log('user before action');
 	if(req.user == undefined){
 		res.redirect("/");
 		return;

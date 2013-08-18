@@ -58,7 +58,7 @@ $(function(){
    var progressHabit = function() {
      url = '/habit/update';
 
-     var posting = $.post(url, {lastUpdateDate: new Date().toDateString()});
+     var posting = $.post(url, {lastUpdateDate: new Date().toUTCString()});
 
      posting.done(function( data ) {
         location.reload();
