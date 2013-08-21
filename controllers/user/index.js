@@ -13,7 +13,7 @@ exports.list = function(req, res, next){
 	res.render('list', { users: db.users});
 }
 
-exports.show = function(req, res, next){
+exports.index = function(req, res, next){
 	db.getActiveUserHabit(req.user._id).then(function(userHabit){
 		if(userHabit == null){
 			res.render('new');

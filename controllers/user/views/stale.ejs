@@ -1,3 +1,11 @@
 <% layout('../../../views/boilerplate') -%>
-<h1> stale </h1>
-hello <%= model.habit.goal %>
+<% stylesheet('/stylesheets/progress.css') -%>
+<% script('/script/progress.js') -%>
+     <div class="container">
+      <div class="row-fluid heading">
+        <div class="span12">
+          <h1> Sorry, it's expired </h1>
+        </div>
+      </div>
+      <%-partial('calendar', {lasted:status.lasted, startDate:startDate}) %>
+    </div>

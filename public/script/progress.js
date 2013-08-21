@@ -35,7 +35,18 @@ $(function(){
 		for(var i=0; i < lasted; i++){
 			$(cells[i]).append("<img src='/image/done1.gif'/>");
 		}
+
+		var daysTillToday = getDaysTillToday();
+		for(var i=lasted; i < daysTillToday && i < 21; i++){
+			$(cells[i]).append("<img src='/image/failed.jpg'/>");
+		}
 		
+	}
+
+	var getDaysTillToday= function(){
+		var startDate = $('#values').attr('startDate');
+		var aday = 1000*60*60*24;
+	    return Math.floor((Date.now() - (new Date(startDate)).valueOf())/aday);
 	}
 
 
