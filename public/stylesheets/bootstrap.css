@@ -5422,6 +5422,13 @@ a.thumbnail:focus {
   color: #e6e6e6;
 }
 
+.alert-custom {
+  color: #ffffff;
+  background-color: #1a2531;
+  border-color: #1a2531;
+  padding: 2px;
+}
+
 .alert-danger {
   color: #ffffff;
   background-color: #e74c3c;
