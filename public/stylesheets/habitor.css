@@ -9,6 +9,7 @@
 	.linediv-r {
 		border-left: 1px white solid;
 	}
+
 }
 
 @media (max-width: 979px)
@@ -52,6 +53,22 @@ body{
 	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
 }
 
+.splash{
+	padding: 6em 0 2em;
+	color: #fff;
+	text-align: center;
+	background: -webkit-linear-gradient(70deg,#080f1f 30%,#2b4b5a 87%,#435e67 100%);
+	background: -o-linear-gradient(70deg,#080f1f 30%,#2b4b5a 87%,#435e67 100%);
+	background: -ms-linear-gradient(70deg,#080f1f 30%,#2b4b5a 87%,#435e67 100%);
+	background: -moz-linear-gradient(70deg,#080f1f 30%,#2b4b5a 87%,#435e67 100%);
+	background: linear-gradient(20deg,#080f1f 30%,#2b4b5a 87%,#435e67 100%);
+	background-attachment: fixed;
+	background-color: #1c2533;
+}
+
+.splash h1 {
+font-size: 4em;
+}
 .headercontainer{
 	background-color: #372f2d;
 	color: white;
@@ -62,13 +79,23 @@ body{
 	vertical-align: middle;
 }
 
-.pic{
-	height: 400px;
-	background-image: url('/image/habit.jpg');
+.pitch{
+	height: 161px;
+	background-image: url('/image/pitch.png');
 	background-size: contain;
     background-repeat: no-repeat;
     background-position: 50% 50%;
+    margin-top: 30px;
+    margin-bottom: 40px;
 }
+
+.section-tout {
+padding: 4em 0 3em;
+background-color: #eaf1f1;
+border-top: 1px solid rgba(255,255,255,0.1);
+border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
 p.lead{
 	padding-top: 1.5%;
 	font-size: 24px;
@@ -79,10 +106,7 @@ p{
 	line-height: 24px;
 }
 
-/*video pitch and action*/
-.pitch {
-	padding: 2.5% 0%;
-}
+
 .order{
 	padding: 2% 0%;	
 }
