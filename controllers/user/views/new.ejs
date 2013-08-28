@@ -1,17 +1,29 @@
 <% layout('../../../views/boilerplate') -%>
-
+<% stylesheet('/stylesheets/progress.css') -%>
+<% script('/script/progress.js') -%>
 <div id="fb-root"></div>
-<div id='container'>
-    <div class="row-fluid section1">
-        <div class="span12 heading">
-            <h1>
-                Create a habit to follow
-            </h1>
+
+<div class="splash">
+  <div class="container">
+    <div class="row">
+      <h1>
+        Create a habit to follow
+      </h1>
+      <div class="col-lg-12">
+        <div class="alert alert-dismissable alert-warning">
+          <ul>
+            <li>Follow the Reminder-Routine-Reward process</li>
+            <li>Continue in 21 days</li>
+            <li>Start simple, start tiny</li>
+          </ul>
         </div>
+      </div>
     </div>
-    <div class="row-fluid section1">
-        <div class="span4 well offset4">
-        <legend>Start simple, start tiny</legend>
+  </div>
+</div>
+<div class="section-tout">
+  <div class="row">
+      <div class="col-lg-12">
         <form id="create_habit" title="" method="post">
             <div>
                 <label class="title">When <span><a class="explain" href='#'> what is a trigger?</a></span></label> 
@@ -33,6 +45,6 @@
                 <input type="submit" id="submitButton"  name="submitButton" value="Make a commitment" class="btn btn-warning">
             </div>
          </form>
-        </div>
-    </div>
+      </div>
+  </div>
 </div>
