@@ -2,15 +2,15 @@ var db =require ('./../../lib/db.js')
  ,helper = require('./../../lib/helpers.js');
 
 exports.before = function(req, res, next){
-	if(req.user == undefined){
+	/*if(req.user == undefined){
 		res.redirect("/");
 		return;
-	}	
+	}	*/
 	next();
 }
 
 exports.list = function(req, res, next){
-	res.render('list', { users: db.users});
+	res.render('new', { users: db.users});
 }
 
 exports.index = function(req, res, next){

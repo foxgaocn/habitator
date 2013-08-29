@@ -16,6 +16,11 @@
     position: relative;
 }
 
+#tip{
+	list-style-position: inside;
+	color: #aaaa00;
+}
+
 .days{
 	margin-left: 22px;
 	color: white;
