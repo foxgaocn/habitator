@@ -1,50 +1,126 @@
 <% layout('../../../views/boilerplate') -%>
 <% stylesheet('/stylesheets/progress.css') -%>
 <% script('/script/progress.js') -%>
-<div id="fb-root"></div>
-
+<div id="fb-root">
+</div>
 <div class="splash">
-  <div class="container">
-    <div class="row">
-      <h1>
-        Create a habit to follow
-      </h1>
-      <div class="col-lg-12">
-        <div class="alert alert-dismissable alert-warning">
-          <ul>
-            <li>Follow the Reminder-Routine-Reward process</li>
-            <li>Continue in 21 days</li>
-            <li>Start simple, start tiny</li>
-          </ul>
+    <div class="container">
+        <div class="row">
+            <h2>
+                Define your own habit
+            </h2>
+            <h2>
+                OR</h2>
+            <h2>
+                Choose from <a href="#">what others are doing</a>
+            </h2>
         </div>
-      </div>
+        <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4">
+                <ul style="list-style-position: inside">
+                    <li>Follow the Reminder-Routine-Reward process</li>
+                    <li>Continue in 21 days</li>
+                    <li>Start simple, start tiny</li>
+                </ul>
+            </div>
+            <div class="col-lg-4"></div>
+        </div>
     </div>
-  </div>
 </div>
 <div class="section-tout">
-  <div class="row">
-      <div class="col-lg-12">
-        <form id="create_habit" title="" method="post">
+    <div class="row">
+        <div class="col-lg-12">
+            <form id="create_habit" title="" method="post">
             <div>
-                <label class="title">When <span><a class="explain" href='#'> what is a trigger?</a></span></label> 
+                <label class="title">
+                    When <span><a class="explain" href='#'>what is a trigger?</a></span></label>
                 <input type="text" id="trigger" name="trigger" placeholder='a trigger happens'>
             </div>
             <div>
-                <label class="title">I will <span><a class="explain" href='#'> what is an routine?</a></span></label>
+                <label class="title">
+                    I will <span><a class="explain" href='#'>what is an routine?</a></span></label>
                 <input type="text" id="action" name="action" placeholder='do some action routinely'>
             </div>
             <div>
-                <label class="title">So that <span><a class="explain" href='#'> what is reward?</a></span> </label>
+                <label class="title">
+                    So that <span><a class="explain" href='#'>what is reward?</a></span>
+                </label>
                 <input type="text" id="goal" name="goal" placeholder='I achieve a positive change'>
             </div>
             <div>
-                <label calss="title">Start Date</label>
-                <input type="date" id="startDate" name="startDate" >
+                <label calss="title">
+                    Start Date</label>
+                <input type="date" id="startDate" name="startDate">
             </div>
             <div>
-                <input type="submit" id="submitButton"  name="submitButton" value="Make a commitment" class="btn btn-warning">
+                <input type="submit" id="submitButton" name="submitButton" value="Make a commitment"
+                    class="btn btn-warning">
             </div>
-         </form>
-      </div>
-  </div>
+            </form>
+        </div>
+    </div>
+</div>
+<% layout('../../../views/boilerplate') -%>
+<% stylesheet('/stylesheets/progress.css') -%>
+<% script('/script/progress.js') -%>
+<div id="fb-root">
+</div>
+<div class="splash">
+    <div class="container">
+        <div class="row">
+            <h2>
+                Define your own habit
+            </h2>
+            <h2>
+                OR</h2>
+            <h2>
+                Choose from <a href="#">what others are doing</a>
+            </h2>
+        </div>
+        <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4 left">
+                <ul style="list-style-position: inside">
+                    <li>Follow the Reminder-Routine-Reward process</li>
+                    <li>Continue in 21 days</li>
+                    <li>Start simple, start tiny</li>
+                </ul>
+            </div>
+            <div class="col-lg-4"></div>
+        </div>
+    </div>
+</div>
+<div class="section-tout">
+    <div class="row">
+        <div class="col-lg-12">
+            <form id="create_habit" title="" method="post">
+            <div>
+                <label class="title">
+                    When <span><a class="explain" href='#'>what is a trigger?</a></span></label>
+                <input type="text" id="trigger" name="trigger" placeholder='a trigger happens'>
+            </div>
+            <div>
+                <label class="title">
+                    I will <span><a class="explain" href='#'>what is an routine?</a></span></label>
+                <input type="text" id="action" name="action" placeholder='do some action routinely'>
+            </div>
+            <div>
+                <label class="title">
+                    So that <span><a class="explain" href='#'>what is reward?</a></span>
+                </label>
+                <input type="text" id="goal" name="goal" placeholder='I achieve a positive change'>
+            </div>
+            <div>
+                <label calss="title">
+                    Start Date</label>
+                <input type="date" id="startDate" name="startDate">
+            </div>
+            <div>
+                <input type="submit" id="submitButton" name="submitButton" value="Make a commitment"
+                    class="btn btn-warning">
+            </div>
+            </form>
+        </div>
+    </div>
 </div>
