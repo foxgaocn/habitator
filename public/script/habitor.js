@@ -85,24 +85,38 @@ $(function(){
 
    validateHabitData = function(){
       var passed = true;
-      $('.error').empty();
+      var requiredError = false;
+      var startDateError = false;
+      $('#error-msg').addClass('invisible');
+      $('#error-msg').empty();
       if(isBlank($('#trigger').val())){
-          $('#trigger').after('<p class="error">* trigger is required</p>');
+          $('#trigger').parent().parent().addClass('has-error');
+          requiredError = true;
           passed = false;
       }
       if(isBlank($('#action').val())){
-          $('#action').after('<p class="error">* action is required</p>');
+          $('#action').parent().parent().addClass('has-error');
+          requiredError = true;
           passed = false;
       }
       if(isBlank($('#goal').val())){
-          $('#goal').after('<p class="error">* goal is required</p>');
+          $('#goal').parent().parent().addClass('has-error');
+          requiredError = true;
           passed = false;
       }
       if(!isAfterToday($('#startDate').val())){
-          $('#startDate').after('<p class="error">* a date after or equal to today\'s date is expected</p>');
+          $('#startDate').parent().parent().addClass('has-error');
+          startDateError = true;
           passed = false;
       }
-
+      if(requiredError){
+        $('#error-msg').removeClass('invisible');
+        $('#error-msg').append("<p>required field not filled");
+      }
+      if(startDateError){
+        $('#error-msg').removeClass('invisible');
+        $('#error-msg').append("<p>start date must be from or after today's date");
+      }
       return passed;
    }
 
