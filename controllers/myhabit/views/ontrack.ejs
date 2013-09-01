@@ -1,0 +1,25 @@
+<% layout('../../../views/boilerplate') -%>
+<% stylesheet('/stylesheets/progress.css') -%>
+<% script('/script/progress.js') -%>
+<% script('/script/countdown.js') -%>
+<div id="fb-root">
+</div>
+<div class="splash">
+    <div class="container">
+        <div class="row">
+            <h2>
+                Great job, you're on track to make a habit
+            </h2>
+        </div>
+        <div class="row">
+            <div class="col-xs-0 col-sm-2 col-md-3 col-lg-4"></div>
+            <div class="col-xs-12 col-sm-8 col-md-6  col-lg-4 left">
+                <div class='alert alert-info center'>
+                	Don't forget to mark your progress here tomorrow
+                </div>
+            </div>
+            <div class="col-xs-0 col-sm-2 col-md-3 col-lg-4"></div>
+        </div>
+    </div>
+</div>
+<%-partial('calendar', {lasted:status.lasted, startDate:startDate}) %>
