@@ -12,6 +12,7 @@ var express = require('express')
   , fs = require('fs')
   , config = require('./configure')
   , db = require('./lib/db.js')
+  , config = require('./configure.js')
   , mongoose = require('mongoose');
 
 
@@ -45,7 +46,7 @@ var app = express();
 app.engine('html', require('ejs').renderFile);
 
 // all environments
-app.set('port', process.env.PORT || 3000);
+app.set('port', config.port || 3000);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 app.engine('ejs', require('ejs-locals'));
