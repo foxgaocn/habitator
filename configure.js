@@ -29,7 +29,7 @@ var func = function(){
 					}
 	    			, database: 'mongodb://127.0.0.1/habitor_test'
 	    			, cookieSecret: '342kfsdakj'
-	    			, port: 80
+	    			, port: 3000
 	    		};
 	}
 }

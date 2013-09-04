@@ -33,12 +33,12 @@ $(function(){
 		var lasted = $('#values').attr('lasted');
 		var cells = $('.calendarcell');
 		for(var i=0; i < lasted; i++){
-			$(cells[i]).append("<img src='/image/done1.gif'/>");
+			$(cells[i]).append("<img src='/image/tick.png'/>");
 		}
 
 		var daysTillToday = getDaysTillToday();
 		for(var i=lasted; i < daysTillToday && i < 21; i++){
-			$(cells[i]).append("<img src='/image/failed.jpg'/>");
+			$(cells[i]).append("<img src='/image/cross.png'/>");
 		}
 		
 	}

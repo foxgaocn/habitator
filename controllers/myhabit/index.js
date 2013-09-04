@@ -22,7 +22,8 @@ exports.index = function(req, res, next){
 			db.findHabitByUserId(userHabit.userId).then(
 				function(habit){
 					var status = helper.getHaibtStatus(userHabit);
-					var viewModel = {habit:habit, status:status, startDate:userHabit.startDate};
+					var viewModel = {habit:habit, status:status, startDate:userHabit.startDate, 
+						startDateStr:userHabit.startDate.toLocaleString().split(' ').splice(1,3).join(' ')};
 					var viewName = getViewName(status.status);
 					res.render(viewName, viewModel);
 				});

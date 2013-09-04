@@ -1,11 +1,25 @@
 <% layout('../../../views/boilerplate') -%>
 <% stylesheet('/stylesheets/progress.css') -%>
 <% script('/script/progress.js') -%>
-     <div class="container">
-      <div class="row-fluid heading">
-        <div class="span12">
-          <h1> Done </h1>
+<div class="splash">
+    <div class="container">
+        <div class="row">
+            <h2>
+                Congratulations! You've done a fantastic job
+            </h2>
         </div>
-      </div>
-      <%-partial('calendar', {lasted:status.lasted, startDate:startDate}) %>
+        <div class="row">
+            <div class="col-xs-0 col-sm-2 col-md-3 col-lg-4"></div>
+            <div class="col-xs-12 col-sm-8 col-md-6  col-lg-4 left">
+                <div class='alert alert-info center'>
+                	After 21 days of practice, hopefully you've made a new habit. Please keep doing it and we hope it will benefit you life.
+                </div>
+                <div class='center'>
+                	<a href='/myhabit/new'><button class='btn btn-large btn-warning'>Start a new habit</button></a>
+                </div>
+            </div>
+            <div class="col-xs-0 col-sm-2 col-md-3 col-lg-4"></div>
+        </div>
     </div>
+</div>
+<%-partial('calendar', {lasted:status.lasted, startDate:startDate}) %>

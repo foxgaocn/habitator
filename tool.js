@@ -1,3 +1,7 @@
+/* useage:
+ node tool.js startdate lastupdatedate
+ */
+
 var db = require('./lib/db.js')
 , models = require('./models/models.js');
 
