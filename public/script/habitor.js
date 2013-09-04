@@ -51,7 +51,7 @@ $(function(){
                                   startDate: $('#startDate').val() } );
 
       posting.done(function( data ) {
-        location.reload();
+        location.href='/myhabit';
       });
    };
 
@@ -61,7 +61,7 @@ $(function(){
      var posting = $.post(url, {lastUpdateDate: new Date().toUTCString()});
 
      posting.done(function( data ) {
-        location.reload();
+        location.href='/myhabit';;
       });
 
      posting.fail(function(xhr){

@@ -2,10 +2,10 @@ var db =require ('./../../lib/db.js')
  ,helper = require('./../../lib/helpers.js');
 
 exports.before = function(req, res, next){
-	/*if(req.user == undefined){
+	if(req.user == undefined){
 		res.redirect("/");
 		return;
-	}	*/
+	}	
 	next();
 }
 
@@ -16,13 +16,12 @@ exports.list = function(req, res, next){
 exports.index = function(req, res, next){
 	db.getActiveUserHabit(req.user._id).then(function(userHabit){
 		if(userHabit == null){
-			res.render('new');
+			res.render('new', {habit:{goal:'', action:'', trigger:''}});
 		}else
 		{
 			db.findHabitByUserId(userHabit.userId).then(
 				function(habit){
 					var status = helper.getHaibtStatus(userHabit);
-					console.log('habit status is ' + status);
 					var viewModel = {habit:habit, status:status, startDate:userHabit.startDate};
 					var viewName = getViewName(status.status);
 					res.render(viewName, viewModel);
@@ -30,6 +29,19 @@ exports.index = function(req, res, next){
 			
 		}
 	})
+	.done();
+}
+
+exports.new = function(req, res, next){
+	res.render('new',{habit:{goal:'', action:'', trigger:''}});
+}
+
+exports.retry = function(req, res, next){
+	db.findHabitByUserId(req.user._id).then(
+				function(habit){
+					console.log("retry habit with goal :" + habit.goal);
+					res.render('new', {habit:habit});
+				})
 	.done();
 }
 

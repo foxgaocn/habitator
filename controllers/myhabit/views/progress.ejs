@@ -1,0 +1,28 @@
+<% layout('../../../views/boilerplate') -%>
+<% stylesheet('/stylesheets/progress.css') -%>
+<% script('/script/progress.js') -%>
+<% script('/script/countdown.js') -%>
+<div id="fb-root">
+</div>
+<div class="splash">
+    <div class="container">
+        <div class="row">
+            <h2>
+                It's good, you're in progress
+            </h2>
+        </div>
+        <div class="row">
+            <div class="col-xs-0 col-sm-2 col-md-3 col-lg-4"></div>
+            <div class="col-xs-12 col-sm-8 col-md-6  col-lg-4 left">
+                <div class='alert alert-warning center'>
+                	You have <span style='color:red'> <span id='hour'></span>:<span id='min'></span>:<span id='sec'></span></span> to finish today's routine
+                </div>
+                <div class="center">
+                	<button id='today_done' class='btn btn-large btn-info'>I did it today</button>
+            	</div>
+            </div>
+            <div class="col-xs-0 col-sm-2 col-md-3 col-lg-4"></div>
+        </div>
+    </div>
+</div>
+<%-partial('calendar', {lasted:status.lasted, startDate:startDate}) %>
