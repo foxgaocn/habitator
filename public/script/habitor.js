@@ -48,7 +48,8 @@ $(function(){
                                   trigger: $('#trigger').val(), 
                                   goal: $('#goal').val(), 
                                   action: $('#action').val(),
-                                  startDate: $('#startDate').val() } );
+                                  startDate: $('#startDate').val(),
+                                  timeZone: new Date().getTimezoneOffset() } );
 
       posting.done(function( data ) {
         location.href='/myhabit';
@@ -57,8 +58,8 @@ $(function(){
 
    var progressHabit = function() {
      url = '/habit/update';
-
-     var posting = $.post(url, {lastUpdateDate: new Date().toUTCString()});
+     var date = new Date();
+     var posting = $.post(url, {lastUpdateDate: date.toUTCString(), timeZone: date.getTimezoneOffset()});
 
      posting.done(function( data ) {
         location.href='/myhabit';;

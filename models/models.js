@@ -25,6 +25,7 @@ var UserHabitSchema = Schema({
 	habitId: String,
 	startDate: Date,
 	lastUpdateDate: Date,
+    timeZone: Number,
     isActive : Boolean
 });
 

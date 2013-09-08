@@ -133,6 +133,8 @@ p{
 
 footer{
 	margin: 5em 0;
+	border-top: solid 1px #18bc9c;
+	color: #999;
 }
 
 footer li {

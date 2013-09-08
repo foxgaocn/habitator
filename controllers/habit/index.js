@@ -7,7 +7,7 @@ exports.create = function(req, res, next){
 	.then(
 		db.createHabit(req.body.trigger, req.body.action, req.body.goal)
 		.then(function(habit){
-			db.createUserHabit(req.user._id, habit._id,  req.body.startDate, null, true)
+			db.createUserHabit(req.user._id, habit._id,  req.body.startDate, null, req.body.timeZone, true)
 			.then(function(user_habit){
 				res.send('done');
 				})
@@ -21,7 +21,7 @@ exports.create = function(req, res, next){
 //AJAX
 exports.update = function(req, res, next){
 	console.log('upating habit lastUpdateDate ');
-	db.updateLastUpdateDate(req.user._id, req.body.lastUpdateDate).
+	db.updateLastUpdateDate(req.user._id, req.body.lastUpdateDate, req.body.timeZone).
 	then(function(){
 		console.log('update done');
 		res.send('done');
