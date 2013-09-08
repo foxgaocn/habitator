@@ -29,6 +29,7 @@ var func = function(){
 				}
     			, database: 'mongodb://127.0.0.1/habitized'
     			, cookieSecret: '342kfsdakj'
+    			, port : '80'
     		};
 
     	default:
