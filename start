@@ -1,0 +1,1 @@
+sudo NODE_ENV=product node app.js
