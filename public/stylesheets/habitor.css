@@ -130,15 +130,20 @@ p{
 .asset{
 	padding: 2.5% 0%;
 }
-.footer{
-	color: #cccccc;
-	text-align: center;
+
+footer{
+	margin: 5em 0;
 }
-.footer p{
-	font-size: 11px;
+
+footer li {
+float: left;
+margin-right: 1.5em;
+margin-bottom: 1.5em;
 }
-.footer a{
-	color: #ccccff
+
+footer p {
+margin-bottom: 0;
+clear: left;
 }
 
 .red{
