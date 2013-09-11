@@ -1,4 +1,4 @@
-<% layout('boilerplate') -%>
+<% layout('../../../views/boilerplate') -%>
 <div class="splash">
       <div class="container">
 
@@ -8,16 +8,9 @@
             <div class="pitch">
             </div>
 
-            
-            <div>
-              <p>
-              <a href="auth/facebook" class="facebook">
-                <button class="btn btn-primary btn-lg btn-facebook">
-                  <i class="icon-facebook-sign"></i> | Sign-in with Facebook
-                </button>
-              </a>
-            </p>
-            </div>
+            <%-partial('mystatus', {known: known}) %>
+
+           
             <div class="row">
             <div class="col-lg-12">
               <div class="alert alert-dismissable alert-custom">
@@ -52,7 +45,7 @@
           <div class="col-lg-4 col-sm-6">
             <h3><i class="icon-wrench"></i> How can <b>Habitized</b> help </h3>
             <p>1. Define your habit use the Reminder-Routine-Reward pattern</p>
-            <p>2. Or, you can choose what other people're trying</p>
+            <p>2. Or, you can choose what other people''re trying</p>
             <p>3. Track your progress in 21 days </p>
             <p>4. Public announcement of your progress (via facebook) in order to give you the motivation and peer-pressure to continue
           </div>
@@ -60,5 +53,3 @@
 
       </div>
 </div>
-
-<% block('signinout', '<a href="auth/facebook">Sign-in</a>') -%>

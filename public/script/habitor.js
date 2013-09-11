@@ -27,7 +27,7 @@ $(function(){
       FB.ui({
              method: 'feed',
              name: 'Habitor announcement',
-             link: 'http://www.habitor.com',
+             link: 'http://www.habitized.com',
              picture: 'http://fbrell.com/f8.jpg',
              caption: 'I am announcing',
              description: 'to be fit, i will run 3 kms every day for 21 days'
