@@ -159,3 +159,17 @@ clear: left;
 	margin-left: 5px;
 	margin-top: -10px;
 }
+
+.center {
+	text-align: center;
+}
+
+.left {
+	text-align: left;
+}
+
+.quotation {
+	font-style: italic;
+	padding-left: 5px;
+	padding-right: 5px;
+}
