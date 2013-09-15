@@ -23,14 +23,14 @@ window.fbAsyncInit = function() {
 
 $(function(){
 
-   var postToFB = function(callback){
+   var postToFB = function(caption, message, callback){
       FB.ui({
              method: 'feed',
-             name: 'Habitor announcement',
+             name: 'Habitized announcement',
              link: 'http://www.habitized.com',
              picture: 'http://fbrell.com/f8.jpg',
-             caption: 'I am announcing',
-             description: 'to be fit, i will run 3 kms every day for 21 days'
+             caption: caption,
+             description: message
             },
             function(response) {
                if (response && response.post_id) {
@@ -74,14 +74,17 @@ $(function(){
    $("#submitButton").click(function(event){
       event.preventDefault();
       if(!validateHabitData()) return;
-      postToFB(createHabit);
+      var caption = 'I am trying to make a habit'
+      var message = 'When ' + $('#trigger').val() + ', I will ' + $('#action').val() + ' so that ' + $('#goal').val();
+      postToFB(caption, message, createHabit);
    });
 
    //today done button clicked
    $("#today_done").click(function(event){
       event.preventDefault();
-      //alert('start');
-      postToFB(progressHabit);
+      var caption = 'Habit making in progress'
+      var message = $('#msg').text();
+      postToFB(caption, message, progressHabit);
    });
 
    validateHabitData = function(){
