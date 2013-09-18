@@ -168,8 +168,16 @@ clear: left;
 	text-align: left;
 }
 
+.right {
+	text-align: right;
+}
+
 .quotation {
 	font-style: italic;
 	padding-left: 5px;
 	padding-right: 5px;
+}
+
+.myhidden{
+	display: none;
 }

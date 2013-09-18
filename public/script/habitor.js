@@ -151,6 +151,14 @@ $(function(){
 
     }
 
+    //set the default date as today's date in the new habit form
+    $('#startDate').val(new Date().toJSON().slice(0,10));
+
+
+    $( "#more_info_toggle" ).click(function() {
+      $( "#habit_more_info" ).slideToggle( "slow" );
+    });
+
     setActiveNav();
   
 });
