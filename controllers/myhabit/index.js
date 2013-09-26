@@ -46,6 +46,16 @@ exports.retry = function(req, res, next){
 	.done();
 }
 
+exports.try = function(req, res, next){
+	console.log(req.query.id);
+	db.findHabitById(req.query.id).then(
+				function(habit){
+					console.log("retry habit with goal :" + habit.goal);
+					res.render('try', {habit:habit});
+				})
+	.done();
+}
+
 getViewName = function(status){
 	switch(status){
 		case helper.STATUS.STALE:

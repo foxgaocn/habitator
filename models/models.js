@@ -17,7 +17,9 @@ var UserSchema = Schema({
 var HabitSchema = Schema({
     trigger: String,
 	goal: String,
-	action: String
+	action: String,
+    category: Number,
+    comment: String
 });
 
 var UserHabitSchema = Schema({

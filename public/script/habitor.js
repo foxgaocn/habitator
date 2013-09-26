@@ -48,6 +48,8 @@ $(function(){
                                   trigger: $('#trigger').val(), 
                                   goal: $('#goal').val(), 
                                   action: $('#action').val(),
+                                  category: $('#category').val(),
+                                  comment: $('#comment').val(),
                                   startDate: $('#startDate').val(),
                                   timeZone: new Date().getTimezoneOffset() } );
 
