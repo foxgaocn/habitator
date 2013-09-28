@@ -11,7 +11,7 @@
             <h2>
                 OR</h2>
             <h2>
-                Choose from <a href="#">what others are doing</a>
+                Choose from <a href="/habit/lists">what others are doing</a>
             </h2>
         </div>
         <div class="row">
@@ -27,4 +27,5 @@
         </div>
     </div>
 </div>
-<%-partial('newform', {habit: habit, categories: categories}) %>
+
+<%-partial('newform', {habit: habit, categories: categories, showWarning: showWarning}) %>

@@ -9,9 +9,6 @@ exports.before = function(req, res, next){
 	next();
 }
 
-exports.list = function(req, res, next){
-	res.render('new', { users: db.users});
-}
 
 exports.index = function(req, res, next){
 	db.getActiveUserHabit(req.user._id).then(function(userHabit){
@@ -34,26 +31,51 @@ exports.index = function(req, res, next){
 }
 
 exports.new = function(req, res, next){
-	res.render('new',{habit:{goal:'', action:'', trigger:''}, categories: helper.categories});
+	canStartNewHabit(req.user._id, function(canNew){
+		res.render('new',{habit:{goal:'', action:'', trigger:''}, categories: helper.categories, showWarning: !canNew});
+	});
 }
 
 exports.retry = function(req, res, next){
-	db.findHabitByUserId(req.user._id).then(
-				function(habit){
-					console.log("retry habit with goal :" + habit.goal);
-					res.render('new', {habit:habit});
-				})
-	.done();
+	canStartNewHabit(req.user._id, function(canNew){
+		db.findHabitByUserId(req.user._id).then(
+					function(habit){
+						res.render('try', {habit:habit, showWarning: !canNew});
+					})
+		.done();
+	});
 }
 
 exports.try = function(req, res, next){
-	console.log(req.query.id);
-	db.findHabitById(req.query.id).then(
+	canStartNewHabit(req.user._id, function(canNew){
+		db.findHabitById(req.query.id).then(
 				function(habit){
-					console.log("retry habit with goal :" + habit.goal);
-					res.render('try', {habit:habit});
+					res.render('try', {habit:habit, showWarning: !canNew});
 				})
-	.done();
+		.done()
+	});
+}
+
+var canStartNewHabit = function(userid, callback){
+	db.getActiveUserHabit(userid).then(function(userHabit){
+		if(userHabit == null){
+			callback(true);
+		}else{
+			var status = helper.getHaibtStatus(userHabit);
+			console.log('current habit status ' + getViewName(status.status));
+			if(status.status == helper.STATUS.TODAY_DONE || status.status == helper.STATUS.TODAY_NOT_DONE){
+				callback(false);
+			}else
+			{
+				callback(true);
+			}
+		}
+	}).done();
+}
+
+var canTryHabit = function(habit){
+	var status = helper.getHaibtStatus(userHabit);
+	return (status == helper.STATUS.TODAY_DONE || status == helper.STATUS.TODAY_NOT_DONE);
 }
 
 getViewName = function(status){
