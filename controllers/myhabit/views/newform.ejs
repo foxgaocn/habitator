@@ -43,10 +43,9 @@
                         </label>
                         <div class="col-lg-9">
                         <select id="category" name="category" placeholder='achieve a goal' class='form-control'>
-                            <option value="1">Health and fitness</option>
-                            <option value="2">Relationship</option>
-                            <option value="3">Career</option>
-                            <option value="0" selected>Other</option>
+                            <% for(var cat in categories) { %>
+                                <option value= '<%= cat %>' > <%= categories[cat]%> </option>
+                            <% } %>
                             </select>
                         </div>
                     </div>

@@ -34,7 +34,7 @@ exports.index = function(req, res, next){
 }
 
 exports.new = function(req, res, next){
-	res.render('new',{habit:{goal:'', action:'', trigger:''}});
+	res.render('new',{habit:{goal:'', action:'', trigger:''}, categories: helper.categories});
 }
 
 exports.retry = function(req, res, next){

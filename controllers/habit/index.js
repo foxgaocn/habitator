@@ -1,4 +1,5 @@
 var db =require ('./../../lib/db.js');
+var helpers = require('./../../lib/helpers.js')
 
 //AJAX 
 exports.create = function(req, res, next){
@@ -43,9 +44,9 @@ exports.lists = function(req, res, next){
 			}
 			group[doc.category].push(doc);
 		});
-		group[0] = group[0].concat(group[undefined]);
+		group[6] = group[6].concat(group[undefined]);
 		delete group[undefined];
-		res.render('lists', {known: req.user == undefined, habits: group});
+		res.render('lists', {known: req.user == undefined, habits: group, categories: helpers.categories});
 	})
 	.end();//mongoos promise. use end instead of done
 }
