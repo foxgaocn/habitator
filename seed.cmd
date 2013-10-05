@@ -1,0 +1,1 @@
+mongoimport -d habitized -c habitmodels --type csv --file habits.csv --headerline

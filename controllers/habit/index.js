@@ -44,8 +44,10 @@ exports.lists = function(req, res, next){
 			}
 			group[doc.category].push(doc);
 		});
-		group[6] = group[6].concat(group[undefined]);
-		delete group[undefined];
+		if(group[6]!=undefined && group[undefined] != undefined){
+			group[6] = group[6].concat(group[undefined]);
+			delete group[undefined];
+		}
 		res.render('lists', {known: req.user == undefined, habits: group, categories: helpers.categories});
 	})
 	.end();//mongoos promise. use end instead of done
