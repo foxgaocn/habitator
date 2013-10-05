@@ -50,7 +50,9 @@ exports.try = function(req, res, next){
 	canStartNewHabit(req.user._id, function(canNew){
 		db.findHabitById(req.query.id).then(
 				function(habit){
-					res.render('try', {habit:habit, showWarning: !canNew});
+					var str = JSON.stringify(habit).replace(/'/g,'\'');
+					var obj = JSON.parse(str);
+					res.render('try', {habit:obj, showWarning: !canNew});
 				})
 		.done()
 	});

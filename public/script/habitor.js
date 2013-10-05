@@ -154,9 +154,9 @@ $(function(){
     }
 
     //set the default date as today's date in the new habit form
-    var currentDate = new Date();
-    var localDate = new Date(currentDate.getYear() + 1900, currentDate.getMonth(), currentDate.getDay());
-    $('#startDate').val(localDate.toJSON().slice(0,10));
+    var d = new Date();
+    d.setTime(d.getTime() - d.getTimezoneOffset() * 60000);
+    $('#startDate').val(d.toJSON().slice(0,10));
 
     $( "#more_info_toggle" ).click(function() {
       $( "#habit_more_info" ).slideToggle( "slow" );
