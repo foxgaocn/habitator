@@ -34,7 +34,7 @@ everyauth.facebook
     .appId(config.fb.appId)
     .appSecret(config.fb.appSecret)
     .handleAuthCallbackError(function (req, res) {
-        res.send('sorry, in order to use the app, you need to grant facebook access')
+        res.send('sorry, in order to use Habitized, you need to grant facebook access')
     })
     .findOrCreateUser(fbFindOrCreateUser)
     .redirectPath('/');

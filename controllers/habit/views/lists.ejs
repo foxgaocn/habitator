@@ -1,7 +1,6 @@
 <% layout('../../../views/boilerplate') -%>
 <% script('/script/login.js') -%>
 
-
 <div class="section-tout">
       <div class="container">
         <% for(var row=0; row<=1; row++) {%>
@@ -27,4 +26,7 @@
      <% } %>
 	</div>
 </div>
+
+
+<%-partial('../../../views/mystatus', {known: known}) %>
 

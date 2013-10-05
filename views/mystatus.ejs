@@ -1,6 +1,6 @@
 <%if (known) { %>
 
-<% block('signinout', '<a href="/auth/facebook">Sign-in</a>') -%>
+<% block('signinout', '<a id="signIn" href="/auth/facebook">Sign-in</a>') -%>
 <% } else { %>
 	
 	<% block('signinout', '<a href="/user/signout">Sign-out</a>') -%>
