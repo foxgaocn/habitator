@@ -1,0 +1,28 @@
+<% layout('../../../views/boilerplate') -%>
+<% stylesheet('/stylesheets/progress.css') -%>
+<div id="fb-root">
+</div>
+<div class="splash">
+    <div class="container">
+        <div class="row">
+            <h2>
+                You've make up your mind, that's a good start
+            </h2>
+        </div>
+        <div class="row">
+            <div class="col-xs-0 col-sm-2 col-md-3 col-lg-4"></div>
+            <div class="col-xs-12 col-sm-8 col-md-6  col-lg-4 left">
+                Quick tips to form a habit:
+                <ul id="tip">
+                    <li>Follow the Reminder-Routine-Reward process</li>
+                    <li>Continue in 21 days</li>
+                    <li>Start simple, start tiny</li>
+                </ul>
+            </div>
+            <div class="col-xs-0 col-sm-2 col-md-3 col-lg-4"></div>
+        </div>
+    </div>
+</div>
+
+
+<%-partial('retry', {habit: habit, showWarning:showWarning}) %>

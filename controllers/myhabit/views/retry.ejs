@@ -1,0 +1,54 @@
+<div class="section-tout">
+    <div class = "container">
+        <%-partial('warning', {showWarning: showWarning}) %>
+        <div class="row">
+            <div class="col-xs-0 col-sm-2 col-md-3 col-lg-3"></div>
+            <div class="col-xs-12 col-sm-8 col-md-6  col-lg-6 left">
+              <form class="form-horizontal">
+                <fieldset>
+                  <legend style='margin-left:10px;'>A habit you'd like to have</legend>
+                  <div class="form-group">
+                    <label class="col-lg-3 control-label" for='trigger'>Reminder:</label>
+                     <div class="col-lg-9">
+                            <input type="text" readonly id="trigger" name="trigger" value='<%= habit.trigger %>' class='form-control'>
+                      </div>
+                    
+                </div>
+                <div class="form-group"> 
+                    <label class="col-lg-3 control-label" for='action'>
+                        Routine:</label>
+                    <div class="col-lg-9">
+                        <input type="text" id="action" readonly name="action" value='<%= habit.trigger %>' class='form-control'>
+                    </div>
+                </div>
+                <div class="form-group" for='goal'>
+                    <label class="col-lg-3 control-label">Reward:
+                    </label>
+                    <div class="col-lg-9">
+                    <input type="text" id="goal" name="goal" readonly value='<%= habit.goal %>' class='form-control'>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label" for='startDate'>Start Date:
+                    </label>
+                    <div class="col-lg-9">
+                     <input type="date" id="startDate" name="startDate" class='form-control'>
+                    </div>
+                </div>
+                <div class='alert alert-danger invisible' id='error-msg'>
+                </div>
+               
+                    
+                <div class="form-group center">
+                    <input type="submit" id="submitButton" name="submitButton" value="Make a commitment"
+                        class="btn btn-info">
+                </div>
+                </fieldset>
+              </form>
+              <div class="col-xs-0 col-sm-2 col-md-3 col-lg-3"></div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+<% block('signinout', '<a href="/user/signout">Sign-out</a>') -%>

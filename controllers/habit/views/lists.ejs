@@ -1,0 +1,30 @@
+<% layout('../../../views/boilerplate') -%>
+<% script('/script/login.js') -%>
+
+
+<div class="section-tout">
+      <div class="container">
+        <% for(var row=0; row<=1; row++) {%>
+        <div class="row">
+          <% for(var col=0; col<=2; col++) {%>
+          <div class="col-lg-4 col-sm-6">
+            <h3><i class="icon-bullseye"></i> <%= categories[row*3 + col + 1]%></h3>
+            <ul>
+            	<% for(var i=0, j=row*3 + col + 1; i<habits[j].length; i++) {%>
+      				   <li>
+      				   	<div>
+      				   	<%= habits[j][i].trigger %>, <%= habits[j][i].action %>, <%= habits[j][i].goal %>
+      				   </div>
+      				   <div>
+      				   	<a href="/myhabit/try?id=<%=habits[j][i].id%>" class="alert-link try-link">Try it</a>
+      				   </div>
+      				</li>
+      				<% } %>
+            </ul>
+          </div>
+          <% } %>
+        </div>
+     <% } %>
+	</div>
+</div>
+
