@@ -8,24 +8,24 @@
                 <fieldset>
                   <legend style='margin-left:10px;'>A habit you'd like to have</legend>
                   <div class="form-group">
-                    <label class="col-lg-3 control-label" for='trigger'>When</label>
+                    <label class="col-lg-3 control-label" for='trigger'>Reminder:</label>
                      <div class="col-lg-9">
-                            <input type="text" id="trigger" name="trigger" placeholder='a trigger happens' value='<%= habit.trigger %>' class='form-control'>
+                            <input type="text" id="trigger" name="trigger" placeholder='when the trigger happens' value='<%= habit.trigger %>' class='form-control'>
                       </div>
                     
                 </div>
                 <div class="form-group"> 
                     <label class="col-lg-3 control-label" for='action'>
-                        I will</label>
+                        Routine:</label>
                     <div class="col-lg-9">
-                        <input type="text" id="action" name="action" placeholder='do something routinely' value='<%= habit.trigger %>' class='form-control'>
+                        <input type="text" id="action" name="action" placeholder="I'll do something routinely" value='<%= habit.trigger %>' class='form-control'>
                     </div>
                 </div>
                 <div class="form-group" for='goal'>
-                    <label class="col-lg-3 control-label">So that
+                    <label class="col-lg-3 control-label">Reward:
                     </label>
                     <div class="col-lg-9">
-                    <input type="text" id="goal" name="goal" placeholder='achieve a goal' value='<%= habit.goal %>' class='form-control'>
+                    <input type="text" id="goal" name="goal" placeholder='so that I can achieve a goal' value='<%= habit.goal %>' class='form-control'>
                     </div>
                 </div>
                 <div class="form-group">
@@ -40,7 +40,7 @@
                 </div>
                 <div id='habit_more_info' class='myhidden'>    
                     <div class="form-group" for='category'>
-                        <label class="col-lg-3 control-label">Category
+                        <label class="col-lg-3 control-label">Category:
                         </label>
                         <div class="col-lg-9">
                         <select id="category" name="category" placeholder='achieve a goal' class='form-control'>
@@ -51,7 +51,7 @@
                         </div>
                     </div>
                     <div class="form-group" for='comment'>
-                        <label class="col-lg-3 control-label">Comment
+                        <label class="col-lg-3 control-label">Comments:
                         </label>
                         <div class="col-lg-9">
                         <textarea id="comment" name="comment" class='form-control'></textarea>
