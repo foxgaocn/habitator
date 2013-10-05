@@ -77,7 +77,7 @@ $(function(){
       event.preventDefault();
       if(!validateHabitData()) return;
       var caption = 'I am trying to make a habit'
-      var message = '$('#trigger').val() + ', ' + $('#action').val() + ', ' + $('#goal').val();
+      var message = $('#trigger').val() + ', ' + $('#action').val() + ', ' + $('#goal').val();
       postToFB(caption, message, createHabit);
    });
 
