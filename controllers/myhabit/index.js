@@ -13,7 +13,7 @@ exports.before = function(req, res, next){
 exports.index = function(req, res, next){
 	db.getActiveUserHabit(req.user._id).then(function(userHabit){
 		if(userHabit == null){
-			res.render('new', {categories :helper.categories, showWarning:false}});
+			res.render('new', {categories :helper.categories, showWarning:false});
 		}else
 		{
 			db.findHabitByUserId(userHabit.userId).then(
