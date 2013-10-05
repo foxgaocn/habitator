@@ -12,7 +12,8 @@
     "everyauth": "*",
     "mongoose": "*",
     "ejs-locals": "~1.0.2",
-    "q": "~0.9.6"
+    "q": "~0.9.6",
+    "forever": "~0.10.8"
   },
   "devDependencies": {
     "mocha": "*"
