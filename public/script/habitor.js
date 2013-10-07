@@ -28,7 +28,7 @@ $(function(){
              method: 'feed',
              name: 'Habitized announcement',
              link: 'http://www.habitized.com',
-             picture: 'http://fbrell.com/f8.jpg',
+             picture: 'http://habitized.com/habit.png',
              caption: caption,
              description: message
             },
