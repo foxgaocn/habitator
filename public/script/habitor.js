@@ -28,7 +28,7 @@ $(function(){
              method: 'feed',
              name: 'Habitized announcement',
              link: 'http://www.habitized.com',
-             picture: 'http://habitized.com/habit.png',
+             picture: 'http://habitized.com/image/habit.png',
              caption: caption,
              description: message
             },
@@ -76,7 +76,7 @@ $(function(){
    $("#submitButton").click(function(event){
       event.preventDefault();
       if(!validateHabitData()) return;
-      var caption = 'I am trying to make a habit'
+      var caption = 'I am trying to make a habit in 21 days'
       var message = $('#trigger').val() + ', ' + $('#action').val() + ', ' + $('#goal').val();
       postToFB(caption, message, createHabit);
    });
