@@ -25,5 +25,5 @@
         </div>
     </div>
 </div>
-<div class='hidden' id='msg'>Hooray, I am on my way to make the habit. Today is the <%=status.lastedDays%> day of my 21-day commitment, and I did "<%=habit.action%>"</div>
+<div class='hidden' id='msg'>Hooray, I am on my way to make the habit. Today is the <%=status.lastedDays%> day of my 21-day commitment, and I did "<%=habit.trigger%>, <%=habit.action%>, <%=habit.goal%>"</div>
 <%-partial('calendar', {lasted:status.lasted, startDate:startDate}) %>
