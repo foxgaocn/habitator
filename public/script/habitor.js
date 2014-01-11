@@ -27,8 +27,8 @@ $(function(){
       FB.ui({
              method: 'feed',
              name: 'Habitized announcement',
-             link: 'http://www.habitized.com',
-             picture: 'http://habitized.com/image/habit.png',
+             link: 'http://www.habitized.com:8088',
+             picture: 'http://habitized.com:8088/image/habit.png',
              caption: caption,
              description: message
             },
